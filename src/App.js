@@ -9,8 +9,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Get a new Chuck Norris Joke</h1>
-        {this.props.tooMany
-          ?  <><FetchButton/><Joke joke={joke}/></>
+        {!this.props.tooMany
+          ?  <><FetchButton/><Joke joke={this.props.joke}/></>
           :  <h3>That's Too Many Chuck Norris Jokes.  Please refresh!</h3>
         }
       </div>

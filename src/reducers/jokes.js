@@ -1,10 +1,10 @@
-const jokes = (state=null, action={}) => {
+const joke = (state=null, action={}) => {
     switch (action.type) {
-        case ('SHOW_JOKE'):
-            return true
+        case ('SET_JOKE'):
+            return action.payload
         default:
             return state
     }
 }
 
-export default jokes
+export default joke

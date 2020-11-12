@@ -3,7 +3,7 @@ export const fetchJoke = () => {
     const url = 'https://api.chucknorris.io/jokes/random'
     return function(dispatch, getState) {
         if (!getState().tooMany) {
-            if (!getState().jokeCount===max) {
+            if (getState().jokeCount >= max) {
                 dispatch({type: 'TOO_MANY'})
             }
             else fetch(url)

@@ -1,6 +1,6 @@
-const tooMany = (state=null, action={}) => {
+const tooMany = (state=false, action={}) => {
     switch (action.type) {
-        case ('SHOW_JOKE'):
+        case ('TOO_MANY'):
             return true
         default:
             return state
