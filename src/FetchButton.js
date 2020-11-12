@@ -1,4 +1,4 @@
-import fetchJoke from './actions'
+import { fetchJoke } from './actions'
 import { connect } from 'react-redux'
 import React from 'react'
 

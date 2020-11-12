@@ -1,7 +1,7 @@
-const jokeCount = (state=null, action={}) => {
+const jokeCount = (state=0, action={}) => {
     switch (action.type) {
-        case ('SHOW_JOKE'):
-            return true
+        case ('INC_JOKE_COUNT'):
+            return state++
         default:
             return state
     }
