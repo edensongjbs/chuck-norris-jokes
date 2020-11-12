@@ -1,25 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { connect }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>Get a new Chuck Norris Joke</h1>
+        {this.props.tooMany
+          ?  <><FetchButton/><Joke joke={joke}/></>
+          :  <h3>That's Too Many Chuck Norris Jokes.  Please refresh!</h3>
+        }
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({tooMany: state.tooMany, joke: state.joke})
+
+export default connect(mapStateToProps)(App)

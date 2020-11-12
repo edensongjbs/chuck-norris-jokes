@@ -1,4 +1,4 @@
-const jokes = (state=null, action={}) => {
+const jokeCount = (state=null, action={}) => {
     switch (action.type) {
         case ('SHOW_JOKE'):
             return true
@@ -7,4 +7,4 @@ const jokes = (state=null, action={}) => {
     }
 }
 
-export default jokes
+export default jokeCount
