@@ -1,6 +1,9 @@
 import logo from './logo.svg';
+import React from 'react'
 import './App.css';
-import { connect }
+import { connect } from 'react-redux'
+import FetchButton from './FetchButton'
+import Joke from './Joke'
 
 class App extends React.Component {
   render() {
