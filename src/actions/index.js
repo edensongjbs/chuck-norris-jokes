@@ -5,6 +5,7 @@ export const fetchJoke = () => {
         if (!getState().tooMany) {
             if (getState().jokeCount >= max) {
                 dispatch({type: 'TOO_MANY'})
+                dispatch({type: 'SET_JOKE', payload: 'cutting you off'})
             }
             else return fetch(url)
             .then( res => res.json())
@@ -13,6 +14,9 @@ export const fetchJoke = () => {
                 dispatch({type: 'INC_JOKE_COUNT'})
                 dispatch({type: 'SET_JOKE', payload: res.value})
             })
+        }
+        else {
+            dispatch({type: 'SET_JOKE', payload: "no more jokes"})
         }
     }
 }
