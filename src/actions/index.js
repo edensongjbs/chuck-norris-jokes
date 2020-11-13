@@ -10,7 +10,6 @@ export const fetchJoke = () => {
             else return fetch(url)
             .then( res => res.json())
             .then( res => {
-                console.log(res)
                 dispatch({type: 'INC_JOKE_COUNT'})
                 dispatch({type: 'SET_JOKE', payload: res.value})
             })
