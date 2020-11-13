@@ -1,16 +1,8 @@
-import rootReducer from '../reducers'
-import { createStore, applyMiddleware } from 'redux'
 import createTestStore from '../configureStore'
 import fetchMock from 'fetch-mock'
 import { fetchJoke } from './'
 
 const url = 'https://api.chucknorris.io/jokes/random'
-
-// const createTestStore = (initialState) => {
-//     // creating a store for our tests
-//     const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore)
-//     return createStoreWithMiddleware(rootReducer, initialState)
-// }
 
 describe('fetchJoke action creator', () => {
     //Setting up our mock response
