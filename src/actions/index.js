@@ -1,12 +1,15 @@
 export const fetchJoke = () => { 
-    const max = 5
+    const max = 5 // Total number of jokes allowed per session
     const url = 'https://api.chucknorris.io/jokes/random'
     return (dispatch, getState) => {
         if (!getState().tooMany) {
             if (getState().jokeCount >= max) {
+                // Runs synchronously
                 dispatch({type: 'TOO_MANY'})
                 dispatch({type: 'SET_JOKE', payload: 'cutting you off'})
             }
+            // Runs asynchronously
+            // NOTE THAT A PROMISE IS BEING RETURNED HERE!
             else return fetch(url)
             .then( res => res.json())
             .then( res => {
@@ -15,6 +18,7 @@ export const fetchJoke = () => {
             })
         }
         else {
+            // Runs synchronously
             dispatch({type: 'SET_JOKE', payload: "no more jokes"})
         }
     }

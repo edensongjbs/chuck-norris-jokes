@@ -23,22 +23,22 @@ describe('fetchJoke action creator', () => {
       return store.dispatch(fetchJoke())
         .then(() => {
           const newState = store.getState();
-          expect(newState.joke).toBe('Not a real Chuck Norris joke.');
+          expect(newState.joke).toBe('Not a real Chuck Norris joke.')
         })
     })
     test('fetches a joke when the limit has almost been reached', () => {
     
-      const store = createTestStore({jokeCount:4, joke:""});
+      const store = createTestStore({jokeCount:4, joke:""})
   
       return store.dispatch(fetchJoke())
         .then(() => {
           const newState = store.getState();
-          expect(newState.joke).toBe('Not a real Chuck Norris joke.');
+          expect(newState.joke).toBe('Not a real Chuck Norris joke.')
         })
     })
     test('fetches a joke when the limit will be exceeded', () => {
     
-      const store = createTestStore({jokeCount:5, joke:""});
+      const store = createTestStore({jokeCount:5, joke:""})
   
       store.dispatch(fetchJoke())
       const newState = store.getState();
@@ -46,10 +46,10 @@ describe('fetchJoke action creator', () => {
     })
     test('fetches a joke when the limit has already been exceeded', () => {
     
-      const store = createTestStore({tooMany:true, joke:""});
+      const store = createTestStore({tooMany:true, joke:""})
   
       store.dispatch(fetchJoke())
       const newState = store.getState();
-      expect(newState.joke).toBe('no more jokes');
+      expect(newState.joke).toBe('no more jokes')
     })
-  });
+  })
